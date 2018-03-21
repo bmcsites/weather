@@ -1,0 +1,49 @@
+<h1>Best Weather</h1>
+<div class="gender">
+    <span>choose your gender: </span>
+    <i class="fa fa-mars fa-2x"></i>
+    <i class="fa fa-venus fa-2x"></i>
+</div>
+
+<div class="row">
+    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+        <div class="card card-day">
+            <div class="top-card">
+                <div class="location"><span class="glyphicon glyphicon-map-marker"></span> {{vm.thelist[0].name}}</div>
+                <div class="temp">{{vm.thelist[0].main.temp | number:0 }}&deg;</div>
+            </div>
+            <div class="mid-card">
+                <div class="daytime">Day</div>
+                <div class="wicon big-img"><img src="http://openweathermap.org/img/w/{{vm.thelist[0].weather[0].icon}}.png"></div>
+                <div class="desc">{{vm.thelist[0].weather[0].description}}</div>
+            </div>
+            <div class="fot-card">
+                <div class="humid">humidity: {{vm.thelist[0].main.humidity | number:0 }}%</div>
+                <div class="windSpeed">wind Speed {{vm.thelist[0].wind.speed}}</div>
+                <div class="windDeg">wind Deg {{vm.thelist[0].wind.deg | number:0 }}&deg;</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+        <div class="card card-night">
+            <div class="location"><span class="glyphicon glyphicon-map-marker"></span> {{vm.thelist[0].name}}</div>
+            <div class="temp">{{vm.thelist[0].main.temp_min | number:0 }}&deg;</div>
+            <div class="daytime">Night</div>
+            <div class="wicon big-img"><img src="http://openweathermap.org/img/w/{{vm.thelist[0].weather[0].icon}}.png"></div>
+            <div class="pressure">pressure: {{vm.thelist[0].main.pressure | number:0}}</div>
+        </div>
+        <div class="card card-date">
+            <h1>{{vm.ctime}}</h1>
+        </div>
+    </div>
+</div>
+<div class="row" id="foot">
+    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12" ng-repeat="wa in vm.thelist">
+        <div class="s-card">
+            <div class="location"><span class="glyphicon glyphicon-map-marker"></span> {{wa.name}}</div>
+            <div class="temp">{{wa.main.temp | number:0 }}&deg;</div>
+            <div class="humid">humidity: {{wa.main.humidity | number:0 }}%</div>
+            <div class="wicon small-img"><img src="http://openweathermap.org/img/w/{{wa.weather[0].icon}}.png"></div>
+        </div>
+    </div>
+</div>
